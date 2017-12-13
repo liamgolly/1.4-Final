@@ -1,0 +1,10 @@
+C:\Users\Liam\source\repos\imagesplitter\imagesplitter\bin\Debug\imagesplitter.exe.config
+C:\Users\Liam\source\repos\imagesplitter\imagesplitter\bin\Debug\imagesplitter.exe
+C:\Users\Liam\source\repos\imagesplitter\imagesplitter\bin\Debug\imagesplitter.pdb
+C:\Users\Liam\source\repos\imagesplitter\imagesplitter\obj\Debug\imagesplitter.csprojResolveAssemblyReference.cache
+C:\Users\Liam\source\repos\imagesplitter\imagesplitter\obj\Debug\imagesplitter.Form1.resources
+C:\Users\Liam\source\repos\imagesplitter\imagesplitter\obj\Debug\imagesplitter.Properties.Resources.resources
+C:\Users\Liam\source\repos\imagesplitter\imagesplitter\obj\Debug\imagesplitter.csproj.GenerateResource.Cache
+C:\Users\Liam\source\repos\imagesplitter\imagesplitter\obj\Debug\imagesplitter.csproj.CoreCompileInputs.cache
+C:\Users\Liam\source\repos\imagesplitter\imagesplitter\obj\Debug\imagesplitter.exe
+C:\Users\Liam\source\repos\imagesplitter\imagesplitter\obj\Debug\imagesplitter.pdb
