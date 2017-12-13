@@ -28,3 +28,13 @@ C:\Users\Liam\Desktop\imagesplitterv2\imagesplitter\obj\Debug\imagesplitter.cspr
 C:\Users\Liam\Desktop\imagesplitterv2\imagesplitter\obj\Debug\imagesplitter.csproj.CoreCompileInputs.cache
 C:\Users\Liam\Desktop\imagesplitterv2\imagesplitter\obj\Debug\imagesplitter.exe
 C:\Users\Liam\Desktop\imagesplitterv2\imagesplitter\obj\Debug\imagesplitter.pdb
+C:\Users\519-p5\Desktop\imagesplitterFinal\imagesplitter\bin\Debug\imagesplitter.exe.config
+C:\Users\519-p5\Desktop\imagesplitterFinal\imagesplitter\bin\Debug\imagesplitter.exe
+C:\Users\519-p5\Desktop\imagesplitterFinal\imagesplitter\bin\Debug\imagesplitter.pdb
+C:\Users\519-p5\Desktop\imagesplitterFinal\imagesplitter\obj\Debug\imagesplitter.csprojResolveAssemblyReference.cache
+C:\Users\519-p5\Desktop\imagesplitterFinal\imagesplitter\obj\Debug\imagesplitter.Form1.resources
+C:\Users\519-p5\Desktop\imagesplitterFinal\imagesplitter\obj\Debug\imagesplitter.Properties.Resources.resources
+C:\Users\519-p5\Desktop\imagesplitterFinal\imagesplitter\obj\Debug\imagesplitter.csproj.GenerateResource.Cache
+C:\Users\519-p5\Desktop\imagesplitterFinal\imagesplitter\obj\Debug\imagesplitter.csproj.CoreCompileInputs.cache
+C:\Users\519-p5\Desktop\imagesplitterFinal\imagesplitter\obj\Debug\imagesplitter.exe
+C:\Users\519-p5\Desktop\imagesplitterFinal\imagesplitter\obj\Debug\imagesplitter.pdb

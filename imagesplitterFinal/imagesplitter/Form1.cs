@@ -1,137 +1,87 @@
-﻿
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 namespace imagesplitter
 {
     public partial class Form1 : Form
     {
-        public bool Dragging;
-        public int Selected = 1;
+        public bool Started;
+        public string Selected = "";
+        private PictureBox find(string name)
+        {
+            foreach (object p in this.Controls)
+            {
+                if (p.GetType() == typeof(PictureBox))
+                    if (((PictureBox)p).Name == name)
+                        return (PictureBox)p;
+            }
+            return new PictureBox(); //OR return null;
+        }
         public Form1()
         {
             KeyDown += new KeyEventHandler(Form1_KeyDown);
             InitializeComponent();
+            pictureBox1.MouseClick += _ClickEvent;
+            pictureBox2.MouseClick += _ClickEvent;
+            pictureBox3.MouseClick += _ClickEvent;
+            pictureBox4.MouseClick += _ClickEvent;
+            pictureBox5.MouseClick += _ClickEvent;
+            pictureBox6.MouseClick += _ClickEvent;
+            pictureBox7.MouseClick += _ClickEvent;
+            pictureBox8.MouseClick += _ClickEvent;
+            pictureBox9.MouseClick += _ClickEvent;
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void _ClickEvent(object sender, EventArgs e)
         {
-            if (Dragging == false)
+            Selected = ((PictureBox)sender).Name;
+            switch (Selected)
             {
-                var imagearray = new Image[9];
-                var image = Image.FromFile("C:\\Users\\Liam\\Desktop\\download.jpg");
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int j = 0; j < 3; j++)
+                case "pictureBox1":
+                    if (Started == false)
                     {
-                        var n = i * 3 + j;
-                        imagearray[n] = new Bitmap(640, 360);
-                        var graphics = Graphics.FromImage(imagearray[n]);
-                        graphics.DrawImage(image, new Rectangle(0, 0, 640, 360), new Rectangle(i * 640, j * 360, 640, 360), GraphicsUnit.Pixel);
-                        graphics.Dispose();
+                        var imagearray = new Image[9];
+                        var image = Image.FromFile("C:\\Users\\519-p5\\Desktop\\download3.jpg");
+                        for (int i = 0; i < 3; i++)
+                        {
+                            for (int j = 0; j < 3; j++)
+                            {
+                                var n = i * 3 + j;
+                                imagearray[n] = new Bitmap(640, 360);
+                                var graphics = Graphics.FromImage(imagearray[n]);
+                                graphics.DrawImage(image, new Rectangle(0, 0, 640, 360), new Rectangle(i * 640, j * 360, 640, 360), GraphicsUnit.Pixel);
+                                graphics.Dispose();
+                            }
+                        }
+                        for (int a = 0; a < 9; a++)
+                        {
+                            find("pictureBox" + (a + 1)).Image = imagearray[a];
+                        }
+                        Started = true;
                     }
-                }
-                pictureBox1.Image = imagearray[0];
-                pictureBox2.Image = imagearray[1];
-                pictureBox3.Image = imagearray[2];
-                pictureBox4.Image = imagearray[3];
-                pictureBox5.Image = imagearray[4];
-                pictureBox6.Image = imagearray[5];
-                pictureBox7.Image = imagearray[6];
-                pictureBox8.Image = imagearray[7];
-                pictureBox9.Image = imagearray[8];
-                Dragging = true;
+                    break;
             }
-            else
-            {
-                Selected = 1;
-            }
-        }
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            Selected = 2;
-        }
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            Selected = 3;
-        }
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            Selected = 4;
-        }
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            Selected = 5;
-        }
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            Selected = 6;
-        }
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            Selected = 7;
-        }
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-            Selected = 8;
-        }
-        private void pictureBox9_Click(object sender, EventArgs e)
-        {
-            Selected = 9;
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.D)
-            {               
-                if (Selected == 1) pictureBox1.Location = new Point(pictureBox1.Location.X + 10, pictureBox1.Location.Y);   
-                else if (Selected == 2) pictureBox2.Location = new Point(pictureBox2.Location.X + 10, pictureBox2.Location.Y); 
-                else if (Selected == 3) pictureBox3.Location = new Point(pictureBox3.Location.X + 10, pictureBox3.Location.Y);
-                else if (Selected == 4) pictureBox4.Location = new Point(pictureBox4.Location.X + 10, pictureBox4.Location.Y);
-                else if (Selected == 5) pictureBox5.Location = new Point(pictureBox5.Location.X + 10, pictureBox5.Location.Y);
-                else if (Selected == 6) pictureBox6.Location = new Point(pictureBox6.Location.X + 10, pictureBox6.Location.Y);
-                else if (Selected == 7) pictureBox7.Location = new Point(pictureBox7.Location.X + 10, pictureBox7.Location.Y);
-                else if (Selected == 8) pictureBox8.Location = new Point(pictureBox8.Location.X + 10, pictureBox8.Location.Y);
-                else pictureBox9.Location = new Point(pictureBox9.Location.X + 10, pictureBox9.Location.Y);
+            {
+                find(Selected).Location = new Point(find(Selected).Location.X + 10, find(Selected).Location.Y);
             }
             if (e.KeyCode == Keys.A)
             {
-                if (Selected == 1) pictureBox1.Location = new Point(pictureBox1.Location.X - 10, pictureBox1.Location.Y);
-                else if (Selected == 2) pictureBox2.Location = new Point(pictureBox2.Location.X - 10, pictureBox2.Location.Y);
-                else if (Selected == 3) pictureBox3.Location = new Point(pictureBox3.Location.X - 10, pictureBox3.Location.Y);
-                else if (Selected == 4) pictureBox4.Location = new Point(pictureBox4.Location.X - 10, pictureBox4.Location.Y);
-                else if (Selected == 5) pictureBox5.Location = new Point(pictureBox5.Location.X - 10, pictureBox5.Location.Y);
-                else if (Selected == 6) pictureBox6.Location = new Point(pictureBox6.Location.X - 10, pictureBox6.Location.Y);
-                else if (Selected == 7) pictureBox7.Location = new Point(pictureBox7.Location.X - 10, pictureBox7.Location.Y);
-                else if (Selected == 8) pictureBox8.Location = new Point(pictureBox8.Location.X - 10, pictureBox8.Location.Y);
-                else pictureBox9.Location = new Point(pictureBox9.Location.X - 10, pictureBox9.Location.Y);
+                find(Selected).Location = new Point(find(Selected).Location.X - 10, find(Selected).Location.Y);
             }
             if (e.KeyCode == Keys.S)
             {
-                if (Selected == 1) pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y + 10);
-                else if (Selected == 2) pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 10);
-                else if (Selected == 3) pictureBox3.Location = new Point(pictureBox3.Location.X, pictureBox3.Location.Y + 10);
-                else if (Selected == 4) pictureBox4.Location = new Point(pictureBox4.Location.X, pictureBox4.Location.Y + 10);
-                else if (Selected == 5) pictureBox5.Location = new Point(pictureBox5.Location.X, pictureBox5.Location.Y + 10);
-                else if (Selected == 6) pictureBox6.Location = new Point(pictureBox6.Location.X, pictureBox6.Location.Y + 10);
-                else if (Selected == 7) pictureBox7.Location = new Point(pictureBox7.Location.X, pictureBox7.Location.Y + 10);
-                else if (Selected == 8) pictureBox8.Location = new Point(pictureBox8.Location.X, pictureBox8.Location.Y + 10);
-                else pictureBox9.Location = new Point(pictureBox9.Location.X, pictureBox9.Location.Y + 10);
+                find(Selected).Location = new Point(find(Selected).Location.X, find(Selected).Location.Y + 10);
             }
             if (e.KeyCode == Keys.W)
             {
-                if (Selected == 1) pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y - 10);
-                else if (Selected == 2) pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y - 10);
-                else if (Selected == 3) pictureBox3.Location = new Point(pictureBox3.Location.X, pictureBox3.Location.Y - 10);
-                else if (Selected == 4) pictureBox4.Location = new Point(pictureBox4.Location.X, pictureBox4.Location.Y - 10);
-                else if (Selected == 5) pictureBox5.Location = new Point(pictureBox5.Location.X, pictureBox5.Location.Y - 10);
-                else if (Selected == 6) pictureBox6.Location = new Point(pictureBox6.Location.X, pictureBox6.Location.Y - 10);
-                else if (Selected == 7) pictureBox7.Location = new Point(pictureBox7.Location.X, pictureBox7.Location.Y - 10);
-                else if (Selected == 8) pictureBox8.Location = new Point(pictureBox8.Location.X, pictureBox8.Location.Y - 10);
-                else pictureBox9.Location = new Point(pictureBox9.Location.X, pictureBox9.Location.Y - 10);
+                find(Selected).Location = new Point(find(Selected).Location.X, find(Selected).Location.Y - 10);
             }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
